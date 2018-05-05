@@ -1,0 +1,64 @@
+<html>
+<head>
+<title>Ecuacion</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<script language="JavaScript" src="../rutbasicas.js">
+</script>
+<script language="JavaScript" src="ejemplos.js">
+</script>
+
+<SCRIPT TYPE="text/javascript" LANGUAGE="JavaScript">
+
+function discrim(a, b, c)
+{
+return (b*b - 4*a*c)
+} 
+function soluciones(a, b, c, sol)
+{
+var disc = discrim(a,b,c)
+if (disc < 0)
+   sol[0]=false 
+else
+   {
+   sol[0] = (-b + Math.sqrt(disc))/(2*a)
+   sol[1] = (-b - Math.sqrt(disc))/(2*a)
+   } 
+} 
+
+</SCRIPT>
+</head>
+
+<body>
+<br>
+
+<SCRIPT TYPE="text/javascript" LANGUAGE="JavaScript">
+function mostrar(a,b,c)
+{
+var soluc = new Array(2)
+a = parseFloat(a)
+b = parseFloat(b)
+c = parseFloat(c)
+if (isNaN(a) || isNaN(b) || isNaN(c))
+	return
+soluciones(a,b,c,soluc)
+if (!soluc[0])
+	alert("Sin solucion real")
+else
+	alert("Soluciones:\n"+"  "+Math.round(100*soluc[0])/100+"\n  "+Math.round(100*soluc[1])/100)	
+	
+}
+document.write('<form name="form1" method="post" action="">')
+document.write('a <input name="va" type="text" id="va" size="3" maxlength=" ">')
+document.write('b <input name="vb" type="text" id="vb" size="3">')
+document.write('c <input name="vc" type="text" id="vc" size="3">')
+document.write('<input name="Soluc" type="button"')
+document.write('onClick="mostrar(this.form.va.value,this.form.vb.value,this.form.vc.value)" value="Solucion">')
+document.write('</form>')
+</SCRIPT>
+ 
+ 
+
+
+</body>
+</html>
